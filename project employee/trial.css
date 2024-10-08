@@ -1,0 +1,41 @@
+table {
+  border: solid 3px black;
+}
+
+th {
+  border: solid 1px black;
+}
+
+td {
+  text-align: center;
+  border-right: solid 2px red;
+  padding: 10px;
+  background-color: gray;
+}
+
+.mainCard {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+}
+
+button {
+  margin-left: 13px;
+  border-radius: 5px;
+  border: hidden;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+button:hover {
+  background-color: rgb(62, 61, 61);
+}
+
+button:active {
+  border-top: 3px solid black;
+  margin-top: 3px;
+}

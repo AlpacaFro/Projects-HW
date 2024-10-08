@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My employees</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="bigHeader">My Employees-UI</h1>
+    <div class="bodyCard">
+      <div class="elEmployeeCreate">
+        <form action="">
+          <label for="fName" id="fName">First Name</label>
+          <input
+            type="text"
+            name="fName"
+            id="fName"
+            placeholder="Baba..."
+          /><br />
+          <label for="lname" id="lName">Last Name</label>
+          <input
+            type="text"
+            name="lname"
+            id="lname"
+            placeholder="Babi..."
+          /><br />
+          <label for="age" id="Age">Age</label>
+          <input
+            type="number"
+            name="age"
+            id="age"
+            placeholder="number only"
+          /><br />
+          <label for="date" id="Date">start date</label>
+          <input type="date" name="date" id="date" /><br />
+          <label for="Department" id="department">Department</label>
+          <input
+            type="text"
+            name="department"
+            id="department"
+            placeholder="IT..."
+          /><br />
+          <label for="salary" id="salary">Salary</label>
+          <input
+            type="number"
+            name="salary"
+            id="salary"
+            placeholder="est..num only"
+          /><br />
+        </form>
+        <div class="crudBtns">
+          <button id="submit">Submit</button>
+          <button id="delete">Delete</button>
+          <button id="edit">Edit mployee</button>
+        </div>
+      </div>
+      <div class="elEmployeeInfo">
+        <table class="employeesTable" id="table">
+          <tr>
+            <th id="empFName">First-Name</th>
+            <th id="empLName">Last-Name</th>
+            <th id="empAge">Age</th>
+            <th id="empDate">Start Date</th>
+            <th id="empDepartment">Department</th>
+            <th id="empSalary">Salary</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script type="module" src="controller.js"></script>
+  </body>
+</html>
