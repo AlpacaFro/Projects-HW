@@ -1,12 +1,11 @@
-// Initialize card details in local storage
 function setLocal() {
   localStorage.setItem("cardNo", 2754372283459272);
-  localStorage.setItem("cardPin", 4567);
+  localStorage.setItem("LogPIN", 4567);
   localStorage.setItem("cardBal", 30000);
 }
 setLocal();
 
-// Variables
+
 let counter = 0;
 let savedBalance = parseInt(localStorage.getItem("cardBal"));
 let createSumText;
@@ -23,7 +22,7 @@ const categoriesCardsContent = document.querySelectorAll(
   "#categoriesCards > div"
 );
 
-// Helper Function: Update Balance
+
 function updateBalance(amount, type) {
   savedBalance =
     type === "deposit" ? savedBalance + amount : savedBalance - amount;
@@ -32,13 +31,13 @@ function updateBalance(amount, type) {
   createSumText.innerText = `Your current balance is ${savedBalance} EggPlants`;
 }
 
-// Helper Function: Record Transaction
+
 function recordTransaction(value, type) {
   tranCatcher = ` - A ${type} of ${value} EggPlants was made on • ${new Date().toLocaleString()}`;
   updateTrans(tranCatcher);
 }
 
-// Helper Function: Update Transaction History
+
 function updateTrans(tranCatcher) {
   const createPara = document.createElement("p");
   createPara.innerHTML = tranCatcher;
@@ -46,18 +45,17 @@ function updateTrans(tranCatcher) {
   lastTransactionCard.classList.add("show");
 }
 
-// Helper Function: Validate Input
+
 function validateInput(input) {
   return input !== "" && parseInt(input) > 0;
 }
 
-// Form Submission Event: PIN Validation
 elForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const inpValue = document.getElementById("pinInput").value;
   let validationText = document.getElementById("validation");
 
-  if (inpValue === localStorage.getItem("cardPin")) {
+  if (inpValue === localStorage.getItem("LogPIN")) {
     validationText.innerText = "Connected";
     validationText.classList.remove("invalid");
     validationText.classList.add("valid");
@@ -76,7 +74,7 @@ elForm.addEventListener("submit", (event) => {
   }
 });
 
-// Button Click Event: Show Corresponding Content
+
 btnNodeList.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     categoriesCardsContent.forEach((div) => div.classList.add("hidden"));
@@ -84,7 +82,7 @@ btnNodeList.forEach((btn, index) => {
   });
 });
 
-// Deposit Button Event
+
 depotInputBtn.addEventListener("click", () => {
   if (validateInput(depositInput.value)) {
     if (!createSumText) createDeposit();
@@ -98,7 +96,7 @@ depotInputBtn.addEventListener("click", () => {
   }
 });
 
-// Withdraw Button Event
+
 withdrawInputBtn.addEventListener("click", () => {
   if (validateInput(withdrawInput.value)) {
     if (!createSumText) createWithdraw();
@@ -112,19 +110,19 @@ withdrawInputBtn.addEventListener("click", () => {
   }
 });
 
-// Create Deposit Function
+
 function createDeposit() {
   updateBalance(parseInt(depositInput.value), "deposit");
   depositCard.appendChild(createSumText);
 }
 
-// Create Withdraw Function
+
 function createWithdraw() {
   updateBalance(parseInt(withdrawInput.value), "withdraw");
   withdrawCard.appendChild(createSumText);
 }
 
-// Balance Button Event: Display Current Balance
+
 balanceBtn.addEventListener("click", () => {
   balanceCard.innerHTML = "";
   createSumText = document.createElement("h1");
